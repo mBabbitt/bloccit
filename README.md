@@ -4,7 +4,7 @@
 Made with my mentor at [Bloc](http://bloc.io).
 Created heroku app bustit:
 
-[this link](https://git.heroku.com/bustit.git)
+[link to app](https://bustit.herokuapp.com/ )
 
 
 
