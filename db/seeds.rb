@@ -16,6 +16,10 @@ require 'faker'
      body: Faker::Lorem.paragraph
    )
  end
+
+ unique_post = Post.find_or_create_by(
+  title: "This is a unique post",
+  body:  "I am a unique post"
  
  puts "Seed finished"
  puts "#{Post.count} posts created"
