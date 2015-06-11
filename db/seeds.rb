@@ -17,10 +17,17 @@ require 'faker'
    )
  end
 
- unique_post = Post.find_or_create_by(
-  title: "This is a unique post",
-  body:  "I am a unique post"
- 
+Post.create!(
+  title: "Testing",
+  body: "Maybe this works"
+)
+
+Comment.create!(
+  post: posts.sample,
+  body: "Hopefully it does"
+)
+
+
  puts "Seed finished"
  puts "#{Post.count} posts created"
  puts "#{Comment.count} comments created"
