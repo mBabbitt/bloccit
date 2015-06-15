@@ -10,6 +10,8 @@ gem 'faker'
 
 gem 'devise'
 
+gem 'figaro', '1.0'
+
 # Use sqlite3 as the database for Active Record
 group :production do
    gem 'pg'
