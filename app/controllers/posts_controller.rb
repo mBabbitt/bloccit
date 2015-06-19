@@ -1,6 +1,10 @@
 class PostsController < ApplicationController
-  skip_before_filter :flash_attack, :except => [:new,:index] 
 
+  skip_before_action :flash_attack, only: [:index, :new] 
+
+  def flash_attack
+    flash[:notice] = "Flashes"
+  end 
 
   def index
     @posts = Post.all
