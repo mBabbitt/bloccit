@@ -12,6 +12,8 @@ gem 'devise'
 
 gem 'figaro', '1.0'
 
+gem 'pundit'
+
 # Use sqlite3 as the database for Active Record
 group :production do
    gem 'pg'

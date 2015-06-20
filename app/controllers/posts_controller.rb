@@ -1,13 +1,9 @@
 class PostsController < ApplicationController
 
-  skip_before_action :flash_attack, only: [:index, :new] 
-
-  def flash_attack
-    flash[:notice] = "Flashes"
-  end 
 
   def index
     @posts = Post.all
+    authorize @posts
   end
 
   def show
@@ -16,10 +12,12 @@ class PostsController < ApplicationController
 
   def new
     @post=Post.new
+    authorize @post
   end
 
   def create
     @post = current_user.posts.build(params.require(:post).permit(:title, :body))
+    authorize @post
     if @post.save
       flash[:notice] = "Post was saved."
       redirect_to @post
