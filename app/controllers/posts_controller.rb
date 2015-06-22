@@ -4,6 +4,7 @@ class PostsController < ApplicationController
   def index
     @posts = Post.all
     authorize @posts
+    @summary = @post.summary
   end
 
   def show
