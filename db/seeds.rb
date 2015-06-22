@@ -18,7 +18,7 @@ users=User.all
     description:  Faker::Lorem.paragraph
     )
 end
-topics = Topics.all
+topics = Topic.all
 
 # Note: by calling `User.new` instead of `create`,
 # we create an instance of User which isn't immediately saved to the database.
