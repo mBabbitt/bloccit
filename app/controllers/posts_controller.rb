@@ -8,8 +8,8 @@ class PostsController < ApplicationController
 
   def show
     @topic = Topic.find(params[:topic_id])
-  end@post = Post.find(params[:id])
-
+  @post = Post.find(params[:id])
+  end
 
   def new
     @topic = Topic.find(params[:topic_id])
