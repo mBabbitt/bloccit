@@ -14,6 +14,8 @@ gem 'figaro', '1.0'
 
 gem 'pundit'
 
+gem 'redcarpet'
+
 # Use sqlite3 as the database for Active Record
 group :production do
    gem 'pg'
