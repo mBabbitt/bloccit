@@ -3,9 +3,9 @@ SENDGRID_PASSWORD: nahmabcl3866
 AWS_ACCESS_KEY_ID: AKIAIDULIC55IHWCBLUQ
 AWS_SECRET_ACCESS_KEY: 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
 development:
-  AWS_BUCKET: bloccit-rails-development23
+  AWS_BUCKET: bloccit-rails-development2323
 production:
-  AWS_BUCKET: bloccit-rails-production23
+  AWS_BUCKET: bloccit-rails-production2323
 
 
 
