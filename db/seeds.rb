@@ -78,6 +78,7 @@ admin = User.new(
  member.save!
 
   puts "Seed finished"
+  puts "#{Topic.count} topics created"
   puts "#{User.count} users created"
   puts "#{Post.count} posts created"
   puts "#{Comment.count} comments created"
