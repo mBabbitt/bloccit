@@ -1,13 +1,12 @@
 # encoding: utf-8
 
-class ImageUploader < CarrierWave::Uploader::Base
+class AvatarUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
-   include CarrierWave::MiniMagick
+  include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
-  
   storage :fog
 
   # Override the directory where uploaded files will be stored.
@@ -25,24 +24,21 @@ class ImageUploader < CarrierWave::Uploader::Base
   # end
 
   # Process files as they are uploaded:
-   process :resize_to_fill => [200, 300]
+  process :resize_to_fill => [200, 300]
   
 
   # Create different versions of your uploaded files:
-  
-
-  version :tiny do
+  version :tiny do 
     process resize_to_fill: [20, 20]
   end
 
   version :small do
     process resize_to_fill: [30, 30]
   end
-  
-  version :profile do 
-    process resize_to_fill: [45, 45]  
-  end  
-    
+
+  version :profile do
+    process resize_to_fill: [45, 45]
+  end
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
@@ -55,5 +51,5 @@ class ImageUploader < CarrierWave::Uploader::Base
   # def filename
   #   "something.jpg" if original_filename
   # end
-  
+
 end
