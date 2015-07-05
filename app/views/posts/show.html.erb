@@ -1,16 +1,25 @@
-<h1> <%=  markdown_to_html @post.title %> </h1>
+<h1><%= markdown_to_html @post.title %></h1>
+
 <div class="row">
   <div class="col-md-8">
     <small>
       <%= image_tag(@post.user.avatar.tiny.url) if @post.user.avatar? %>
       submitted <%= time_ago_in_words(@post.created_at) %> ago by
       <%= @post.user.name %>
-    </small>  
+    </small>
+    <%if @post.image? %>
+    <div class="form-group">
+      <p>Current Image</p>
+      <%= image_tag @post.image.url(:big) %>
+    </div>
+    <% end %>
     <p><%= markdown_to_html @post.body %></p>
-       <%= image_tag(@post.image.small.url) if @post.image? %>
+    <h3>Comments</h3>
+    <%= render @comments %>
   </div>
-  <div class="col-md-4"> 
+  <div class="col-md-4">
     <% if policy(@post).edit? %>
+<<<<<<< HEAD
         <%= link_to "Edit", edit_topic_post_path(@topic, @post), class: 'btn btn-success' %>
     <% end %>  
 
@@ -26,7 +35,14 @@
     <%= render @comments %>
     <%= render partial: 'comments/form', locals:{ topic: @topic, post: @post, comment: @comment} %>
     
+=======
+      <%= link_to "Edit Post", edit_topic_post_path(@topic, @post), class: 'btn btn-success' %>
+    <% end %>
+    <br>
+    <br>
+    <% if policy(Comment.new).create? %>
+    <%= render 'comments/form', topic: @topic, comment: @comment, post: @post %>   
+    <% end %>
+>>>>>>> assign-46
   </div>
-</div>    
- 
- 
+</div>
