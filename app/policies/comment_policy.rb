@@ -1,8 +1,8 @@
 class CommentPolicy < ApplicationPolicy
-<<<<<<< HEAD
+
   def destroy?
     user.present? && (record.user == user || user.admin? || user.moderator?)
-=======
+  end
 
   def create?
     user.present?
@@ -10,6 +10,6 @@ class CommentPolicy < ApplicationPolicy
 
   def new?
     create?
->>>>>>> assign-46
+
   end
 end
