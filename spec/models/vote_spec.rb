@@ -1,18 +1,27 @@
 require 'rails_helper'
- 
- describe Vote do
-# pending "add some examples to (or delete) #{__FILE__}"
-# end
-   describe "validations" do
+
+describe Vote do
+
+  describe "validations" do
     describe "value validation" do
-     it "only allows -1 or 1 as a valid value" do
-        vote_up = Vote.new(value: 1)
-        vote_down = Vote.new(value: -1)
-        vote_nil = Vote.new(value: 0)
-        expect(vote_up.valid?).to eq(true)
-        expect(vote_down.valid?).to eq(true)
-        expect(vote_nil.valid?).to eq(false)
-       end
-     end
-   end
+      it "only allows -1 or 1 as values" do
+        v1 = Vote.new(value: 1)
+        v2 = Vote.new(value: -1)
+        v3 = Vote.new(value: 2)
+        expect(v1.valid?).to eq(true)
+        expect(v2.valid?).to eq(true)
+        expect(v3.valid?).to eq(false)
+      end
+    end
+  end
+
+  describe "after_save" do
+    include TestFactories
+    it "calls 'Post#update_rank' after save" do
+      post = associated_post
+      vote = Vote.new(value: 1, post: post)
+      expect(post).to receive(:update_rank)
+      vote.save
+    end
+  end  
 end

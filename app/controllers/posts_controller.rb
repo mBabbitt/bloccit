@@ -20,6 +20,7 @@ def show
     @post.topic = @topic
     authorize @post
     if @post.save
+      @post.create_vote
       flash[:notice] = "Post was saved."
       redirect_to [@topic, @post]
     else
