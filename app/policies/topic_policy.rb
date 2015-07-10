@@ -7,8 +7,12 @@ class TopicPolicy < ApplicationPolicy
    def create?
      user.present? && user.admin?
    end
- 
-   def update?
+
+  def show?
+    record.public? || user.present?
+  end
+
+  def update?
      create?
    end
  end

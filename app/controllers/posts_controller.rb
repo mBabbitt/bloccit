@@ -4,9 +4,9 @@ def show
     @post = Post.find(params[:id])
     @topic = Topic.find(params[:topic_id])
     @comments = @post.comments
-     @comment = Comment.new
-
-  end
+    @comment = Comment.new
+    authorize @topic
+end
 
   def new
     @topic = Topic.find(params[:topic_id])
