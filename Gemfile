@@ -24,6 +24,8 @@ gem 'fog'
 
  gem 'will_paginate', '~> 3.0.5'
 
+gem 'newrelic_rpm'
+
 # Use sqlite3 as the database for Active Record
 group :production do
    gem 'pg'
