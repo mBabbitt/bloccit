@@ -1,13 +1,11 @@
-<% if current_user %>
-  <%= form_for [post, post.comments.new] do |f| %>
-  <div class="form-group">
-    <%= f.text_area :body, rows: 8, class: 'form-control', placeholder: "Enter comment" %>
-   <br>
+ <% if current_user && policy(Comment.new).create? %>
+  <h4>Add a comment:</h4>
+  <%= form_for [post, post.comments.new], remote: true do |f| %>
     <div class="form-group">
-    <%= f.submit "Save", class: 'btn btn-success' %>
-    <br>
+      <%= f.label :body %>
+      <%= f.text_area :body, class: 'form-control', placeholder: "Enter a comment" %>
+      <br>
+      <%= f.submit "Add Comment", class: 'btn btn-primary' %>
     </div>
-  </div>
   <% end %>
 <% end %>
-
